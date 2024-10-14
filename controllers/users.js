@@ -2,12 +2,14 @@ const mongodb = require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async(req,res) => {
+    //#swagger.tags=['Users']
     const users = await mongodb.getDatabase().db().collection('users').find().toArray();
     res.setHeader('Content-type', 'application/json');
     res.status(200).json(users);
 };
 
 const createContact = async(req,res) => {
+    //#swagger.tags=['Users']
     const user = {
         userName: req.body.userName,
         email: req.body.email,

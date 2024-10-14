@@ -1,0 +1,58 @@
+//TEST
+### Get All Books
+GET https://localhost:8080/books
+
+### Create Book
+POST https://localhost:8080/books HTTP/1.1
+content-type: application/json
+{
+    "title": "test",
+    "type": "test",
+    "chapters": 1,
+    "artist": "test",
+    "author": "test",
+    "firstAired": "test",
+    "synopsis": "test"
+}
+
+### Get All Users
+GET https://localhost:8080/users
+
+### Create Book
+POST https://localhost:8080/users HTTP/1.1
+content-type: application/json
+{
+    "userName": "testName",
+    "email": "test@gmail.com",
+    "password": "test"
+}
+
+
+//PRODUCTION
+### Get All Books
+GET https://localhost:8080/books
+
+### Create Book
+POST https://localhost:8080/books HTTP/1.1
+content-type: application/json
+{
+    "title": "test",
+    "type": "test",
+    "chapters": 1,
+    "artist": "test",
+    "author": "test",
+    "firstAired": "test",
+    "synopsis": "test"
+}
+
+### Get All Users
+GET https://localhost:8080/users
+
+### Create Book
+POST https://localhost:8080/users HTTP/1.1
+content-type: application/json
+{
+    "userName": "testName",
+    "email": "test@gmail.com",
+    "password": "test"
+}

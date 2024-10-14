@@ -2,12 +2,14 @@ const mongodb = require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async(req,res) => {
+    //#swagger.tags=['Books']
     const books = await mongodb.getDatabase().db().collection('books').find().toArray();
     res.setHeader('Content-type', 'application/json');
     res.status(200).json(books);
 };
 
 const createBook = async(req,res) => {
+    //#swagger.tags=['Books']
     const book = {
         title: req.body.title,
         type: req.body.type,
