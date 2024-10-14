@@ -3,9 +3,28 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async(req,res) => {
     //#swagger.tags=['Users']
-    const users = await mongodb.getDatabase().db().collection('users').find().toArray();
-    res.setHeader('Content-type', 'application/json');
-    res.status(200).json(users);
+    try {
+        const users = await mongodb.getDatabase().db().collection('users').find().toArray();
+        res.setHeader('Content-type', 'application/json');
+        res.status(200).json(users);
+    } catch(err) {
+        console.error('Error fetching user: ' + err.message);
+        res.status(500).json({message: "An error occured while fetching users."});
+    }
+};
+
+const getSingle = async(req,res) => {
+    //#swagger.tags=['Users']
+    try{
+        const contactId = new ObjectId(req.params.id);
+        const response = await mongodb.getDatabase().db().collection('users').find( {_id:contactId} ).toArray();
+        res.setHeader('Content-type', 'application/json');
+        res.status(200).json(users);
+    }
+    catch(err){
+        console.error('Error fetching user: ' + err.message);
+        res.status(500).json({message: "An error occured while fetching the user.", error: err.message});
+    }
 };
 
 const createContact = async(req,res) => {
@@ -23,7 +42,10 @@ const createContact = async(req,res) => {
     }
 };
 
+
+
 module.exports = {
     getAll,
-    createContact
+    createContact,
+    getSingle
 };
