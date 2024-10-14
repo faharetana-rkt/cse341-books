@@ -2,6 +2,9 @@
 ### Get All Books
 GET https://localhost:3000/books
 
+### Get One Book
+GET https://localhost:3000/books/67091ac8cab00070a1cc1cb0
+
 ### Create Book
 POST https://localhost:3000/books HTTP/1.1
 content-type: application/json
@@ -14,6 +17,22 @@ content-type: application/json
     "firstAired": "test",
     "synopsis": "test"
 }
+
+### Update Book
+PUT https://localhost:3000/books/67091ac8cab00070a1cc1cb0 HTTP/1.1
+content-type: application/json
+{
+    "title": "The hero is back",
+    "type": "Manhwa",
+    "chapters": 94,
+    "artist": "Ant Studio",
+    "author": "Black Ajin",
+    "firstAired": "03/03/2022",
+    "synopsis": "The strongest hero of humanity, Kim Sung Bin.He threw everything on the line and fought... but he still couldn't prevent the destruction of the world.However, his legend has just begun as he returns 20 years into the past."
+}
+
+### Delete Book
+DELETE https://localhost:3000/books/
 
 ### Get All Users
 GET https://localhost:3000/users
@@ -30,10 +49,10 @@ content-type: application/json
 
 //PRODUCTION
 ### Get All Books
-GET https://localhost:3000/books
+GET https://cse341-books-38m7.onrender.com/books
 
 ### Create Book
-POST https://localhost:3000/books HTTP/1.1
+POST https://cse341-books-38m7.onrender.com/books HTTP/1.1
 content-type: application/json
 {
     "title": "test",
@@ -46,10 +65,10 @@ content-type: application/json
 }
 
 ### Get All Users
-GET https://localhost:3000/users
+GET https://cse341-books-38m7.onrender.com/users
 
-### Create Book
-POST https://localhost:3000/users HTTP/1.1
+### Create User
+POST https://cse341-books-38m7.onrender.com/users HTTP/1.1
 content-type: application/json
 {
     "userName": "testName",

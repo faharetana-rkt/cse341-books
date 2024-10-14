@@ -5,7 +5,7 @@ const doc = {
         title: 'Book Api',
         description: 'It is an Api that performs CRUD operation on two collection in mongodb'
     },
-    host: 'localhost:8080',
+    host: 'localhost:3000',
     schemes: ['http', 'https']
 };
 

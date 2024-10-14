@@ -5,7 +5,7 @@
     "description": "It is an Api that performs CRUD operation on two collection in mongodb",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
     "http",
