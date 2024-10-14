@@ -1,9 +1,9 @@
 //TEST
 ### Get All Books
-GET https://localhost:8080/books
+GET https://localhost:3000/books
 
 ### Create Book
-POST https://localhost:8080/books HTTP/1.1
+POST https://localhost:3000/books HTTP/1.1
 content-type: application/json
 {
     "title": "test",
@@ -16,10 +16,10 @@ content-type: application/json
 }
 
 ### Get All Users
-GET https://localhost:8080/users
+GET https://localhost:3000/users
 
 ### Create Book
-POST https://localhost:8080/users HTTP/1.1
+POST https://localhost:3000/users HTTP/1.1
 content-type: application/json
 {
     "userName": "testName",
@@ -30,10 +30,10 @@ content-type: application/json
 
 //PRODUCTION
 ### Get All Books
-GET https://localhost:8080/books
+GET https://localhost:3000/books
 
 ### Create Book
-POST https://localhost:8080/books HTTP/1.1
+POST https://localhost:3000/books HTTP/1.1
 content-type: application/json
 {
     "title": "test",
@@ -46,10 +46,10 @@ content-type: application/json
 }
 
 ### Get All Users
-GET https://localhost:8080/users
+GET https://localhost:3000/users
 
 ### Create Book
-POST https://localhost:8080/users HTTP/1.1
+POST https://localhost:3000/users HTTP/1.1
 content-type: application/json
 {
     "userName": "testName",
