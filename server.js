@@ -16,11 +16,13 @@ app.use((req, res, next) => {
 });
 app.use('/', require('./routes'));
 
-(async () => {
-    try {
-        const db = await mongodb.initDb();         
-        console.log('Database initialized and node running at port', port);
-    } catch (err) {
-        console.error('Error initializing database:', err);
+mongodb.initDb((err) => {
+    if(err) {
+        console.log(err);
     }
-})();
+    else {
+        app.listen(port, () => {
+            console.log(`Database is listening and node running at port ${port}`);
+        });
+    }
+});
