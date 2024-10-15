@@ -8,7 +8,6 @@
   "host": "cse341-books-38m7.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
