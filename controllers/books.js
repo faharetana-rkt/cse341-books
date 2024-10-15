@@ -12,6 +12,16 @@ const bookSchema = Joi.object({
     synopsis: Joi.string().min(5).max(1000).required(),
 });
 
+const getAllSchema = Joi.object({
+    title: Joi.string().alphanum().min(3).max(30),
+    type: Joi.string().min(5).max(6),
+    chapters: Joi.number().integer().min(0),
+    artist: Joi.string().min(2).max(30),
+    author: Joi.string().min(2).max(30),
+    date: Joi.string().min(10).max(10),
+    synopsis: Joi.string().min(5).max(1000),
+});
+
 const idSchema = Joi.string().custom((value, helpers) => {
     if (!ObjectId.isValid(value)) {
         return helpers.message('Invalid ObjectId');
@@ -22,7 +32,7 @@ const idSchema = Joi.string().custom((value, helpers) => {
 
 const getAll = async(req,res) => {
     //#swagger.tags=['Books']
-    const { error, value } = bookSchema.validate(req.query);
+    const { error, value } = getAllSchema.validate(req.query);
         
         if (error) {
             return res.status(400).json({ message: `Invalid request: ${error.details[0].message}` });

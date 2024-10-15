@@ -8,6 +8,12 @@ const userSchema = Joi.object({
     password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required(),
 });
 
+const getAllSchema = Joi.object({
+    userName: Joi.string().alphanum().min(3).max(30),
+    email: Joi.string().email({ minDomainSegments: 2 }),
+    password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
+});
+
 const idSchema = Joi.string().custom((value, helpers) => {
     if (!ObjectId.isValid(value)) {
         return helpers.message('Invalid ObjectId');
@@ -19,7 +25,7 @@ const idSchema = Joi.string().custom((value, helpers) => {
 const getAll = async(req,res) => {
     //#swagger.tags=['Users']
     try {
-        const { error, value } = userSchema.validate(req.query);
+        const { error, value } = getAllSchema.validate(req.query);
         
         if (error) {
             return res.status(400).json({ message: `Invalid request: ${error.details[0].message}` });
