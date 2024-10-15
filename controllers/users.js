@@ -19,7 +19,7 @@ const idSchema = Joi.string().custom((value, helpers) => {
 const getAll = async(req,res) => {
     //#swagger.tags=['Users']
     try {
-        const { error, value } = querySchema.validate(req.query);
+        const { error, value } = userSchema.validate(req.query);
         
         if (error) {
             return res.status(400).json({ message: `Invalid request: ${error.details[0].message}` });
