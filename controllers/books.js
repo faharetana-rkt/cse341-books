@@ -63,7 +63,7 @@ const updateBook = async(req, res) => {
 
 const deleteBook = async(req, res) => {
     //#swagger.tags=['Books']
-    const userId = new ObjectId(req.params.id);
+    const bookId = new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().db().collection('books').deleteOne({ _id: bookId });
     if (response.deletedCount > 0) {
         res.status(204).send();
