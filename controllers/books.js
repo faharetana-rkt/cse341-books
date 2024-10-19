@@ -3,7 +3,7 @@ const ObjectId = require('mongodb').ObjectId;
 const Joi = require('joi');
 
 const bookSchema = Joi.object({
-    title: Joi.string().alphanum().min(3).max(30).required(),
+    title: Joi.string().min(3).max(30).required(),
     type: Joi.string().min(5).max(6).required(),
     chapters: Joi.number().integer().min(0).required(),
     artist: Joi.string().min(2).max(30).required(),
