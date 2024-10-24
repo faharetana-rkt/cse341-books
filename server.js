@@ -13,7 +13,7 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json())
    .use(session({
     secret: 'secret',
-    resave: 'false',
+    resave: false,
     saveUninitialized: true,
 }))
 //This is the basic express session({..}) initialization.
@@ -35,7 +35,7 @@ app.use(bodyParser.json())
    .use('/', require('./routes/index.js'));
 
 passport.use(new GitHubStrategy({
-    clinetID: process.env.GITHUB_CLIENT_ID,
+    clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
     callbackURL: process.env.CALLBACK_URL
 },
