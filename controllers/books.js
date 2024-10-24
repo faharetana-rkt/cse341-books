@@ -3,12 +3,12 @@ const ObjectId = require('mongodb').ObjectId;
 const Joi = require('joi');
 
 const bookSchema = Joi.object({
-    title: Joi.string().alphanum().min(3).max(30).required(),
+    title: Joi.string().min(3).max(30).required(),
     type: Joi.string().min(5).max(6).required(),
     chapters: Joi.number().integer().min(0).required(),
     artist: Joi.string().min(2).max(30).required(),
     author: Joi.string().min(2).max(30).required(),
-    date: Joi.string().min(10).max(10).required(),
+    firstAired: Joi.string().min(10).max(10).required(),
     synopsis: Joi.string().min(5).max(1000).required(),
 });
 
@@ -18,7 +18,7 @@ const getAllSchema = Joi.object({
     chapters: Joi.number().integer().min(0),
     artist: Joi.string().min(2).max(30),
     author: Joi.string().min(2).max(30),
-    date: Joi.string().min(10).max(10),
+    firstAired: Joi.string().min(10).max(10),
     synopsis: Joi.string().min(5).max(1000),
 });
 
